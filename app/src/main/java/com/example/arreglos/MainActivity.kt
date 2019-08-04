@@ -5,79 +5,101 @@ import android.os.Bundle
 
 class MainActivity : AppCompatActivity() {
 
+    var totalNombres : Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val weekDays = arrayOf("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo")
+        val hermanachos = mutableListOf("Johnny I", "Johnny II", "Johnny III", "Johnny IV", "Stefanny")
 
-        println(weekDays.get(0))
-        println(weekDays.get(1))
-        println(weekDays.get(2))
-        println(weekDays.get(3))
-        println(weekDays.get(4))
-        println(weekDays.get(5))
-        println(weekDays.get(6))
+        println("*******************************************************************************")
+        println(hermanachos.get(0))
+        println(hermanachos.get(1))
+        println(hermanachos.get(2))
+        println(hermanachos.get(3))
+        println(hermanachos.get(4))
+        println("*******************************************************************************")
 
-        if (weekDays.size >= 8){
-            println(weekDays.get(8))
+        //Print all data of the array with cycle For
+        for (storage in hermanachos){
+            println(storage)
+        }
+        println("*******************************************************************************")
+
+        if (hermanachos.size >= 6){
+            println(hermanachos.get(8))
         }else
-            println("El número digitado no es válido")
+            println("Number typed is not valid")
+            println("*******************************************************************************")
 
-        weekDays.set(0,"Lunes festivo, yupiiiiii.....")
-        weekDays.set(4, "Viernes y el cuerpo lo sabe jajajaja...")
+        //Update data in array
+        hermanachos.set(0,"The lawyer of the family")
+        hermanachos.set(3, "The younger brother")
 
-        println(weekDays.get(0))
-        println(weekDays.get(4))
+        //Showing the new data in array
+        println(hermanachos.get(0))
+        println(hermanachos.get(3))
+        println("*******************************************************************************")
 
-        for (posicion in weekDays.indices) {
-            println(weekDays.get(posicion))
+        //Printing all the array with the new in data
+        for (posicion in hermanachos.indices) {
+            println(hermanachos.get(posicion))
         }
+        println("*******************************************************************************")
 
-
-        for ((position, valor) in weekDays.withIndex()){
-            println("En la posición $position se encuentra el valor $valor")
-    }
-
-        for (weekDay in weekDays){
-            println(weekDay)
+        //Printing each position and value of the array
+        for ((position, valor) in hermanachos.withIndex()){
+            println("In the position $position the value found is $valor")
         }
+        println("*******************************************************************************")
 
-        val monthYears = listOf("Enero", "Febrero","Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto","Septiembre","Octubre","Noviembre", "Diciembre")
-        monthYears.size //Muestra el tamaño de la lista
-        monthYears.first() //Devuelve el primer valor
-        monthYears.last() //Devuelve el último valor
-        monthYears.get(2) //Devuelve el valor de la posición 2
-        println(monthYears) //["Enero", "Febrero","Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto","Septiembre","Octubre","Noviembre", "Diciembre"]
+        hermanachos.size //Muestra el tamaño de la lista
+        hermanachos.first() //Devuelve el primer valor
+        hermanachos.last() //Devuelve el último valor
+        hermanachos.get(2) //Devuelve el valor de la posición 2
 
-        val filtro = monthYears.filter { it == "Lunes" || it == "Juernes"} //El .filter nos permite filtrar en la lista a través de una o varias condiciones que pongamos. Para ello llamamos a it (iterator) y buscaremos en la lista, si contiene la palabra “Lunes” o “Juernes“. En este caso solo pintará “Lunes“.
+        println(hermanachos) //["Johnny I", "Johnny II", "Johnny III", "Johnny IV", "Stefanny"]
+        println("*******************************************************************************")
 
-        val hermanos = mutableListOf("Johnny I", "Johnny II", "Johnny III", "Johnny IV", "Stefanny")
-        println(hermanos)
-        hermanos.add("Daysi")
-        println(hermanos)
+        //Adding or update an element (By default add in the end)
+        hermanachos.add("Daysi")
+        hermanachos.add(0,"Naruto")
+        hermanachos.add(7,"Luffy")
+        hermanachos.add(4,"Ace")
+        println(hermanachos)
+        println("*******************************************************************************")
 
-        hermanos.none() //Nos devuelve un true si está vacía la lista
-        hermanos.firstOrNull() //Nos devolverá el primer campo, y si no hay, un null.
-        hermanos.elementAtOrNull(2) //El elemento del índice 2, si no hay, devolverá un null
-        hermanos.lastOrNull() //Último valor de la lista o null
+        hermanachos.none() //Nos devuelve un true si está vacía la lista
+        hermanachos.firstOrNull() //Nos devolverá el primer campo, y si no hay, un null.
+        hermanachos.elementAtOrNull(2) //El elemento del índice 2, si no hay, devolverá un null
+        hermanachos.lastOrNull() //Último valor de la lista o null
 
-        println(hermanos.none())
+        //El .filter nos permite filtrar en la lista a través de una o varias condiciones que pongamos.
+        // Para ello llamamos a it (iterator) y buscaremos en la lista, si contiene la palabra “Yohnny” o “Stefanny“. En este caso solo pintará “Stefanny“.
+        val filtro = hermanachos.filter { it == "Yohnny" || it == "Stefanny"}
+        println(filtro)
+        println("*******************************************************************************")
 
-        for (contador in hermanos){
-            println(contador)
-        }
+        //Removing an element
+        hermanachos.remove("Daysi")
+        println(hermanachos)
+        println("*******************************************************************************")
 
-        for ((index, item) in hermanos.withIndex()){
+        for ((index, item) in hermanachos.withIndex()){
             println("En el indice $index se encuentra el nombre $item")
-            val totalNombres = hermanos.size
-            println("En total hay $totalNombres nombres o registros")
-        }
+            totalNombres = hermanachos.size
 
+        }
+        println("En total hay $totalNombres nombres o registros")
+        println("*******************************************************************************")
+
+        //Copy an array and can modify
         val nuevaListaHermanos = mutableListOf<String>()
-        hermanos.forEach {
+        hermanachos.forEach {
             nuevaListaHermanos.add("$it:")
         }
         println(nuevaListaHermanos)
+        println("*******************************************************************************")
     }
 }
