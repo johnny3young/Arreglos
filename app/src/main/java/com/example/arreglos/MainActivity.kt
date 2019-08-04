@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         val hermanachos = mutableListOf("Johnny I", "Johnny II", "Johnny III", "Johnny IV", "Stefanny")
 
         println("*******************************************************************************")
+        println("ARRAYS")
         println("Showing data of the arrays:")
         println(hermanachos.get(0))
         println(hermanachos.get(1))
@@ -23,8 +24,8 @@ class MainActivity : AppCompatActivity() {
         println("*******************************************************************************")
 
         println("Print all data of the array with cycle For:")
-        for (storage in hermanachos){
-            println(storage)
+        for (storageBrothers in hermanachos){
+            println(storageBrothers)
         }
         println("*******************************************************************************")
 
@@ -39,11 +40,11 @@ class MainActivity : AppCompatActivity() {
         hermanachos.set(3, "The younger brother")
 
         println("Showing the data updates in array:")
-        println(hermanachos.get(0))
-        println(hermanachos.get(3))
+        println(hermanachos[0])
+        println(hermanachos[3])
         println("*******************************************************************************")
 
-        println("Printing all the array with the new in data:")
+        println("Printing all the array with the news data:")
         for (storage in hermanachos.indices) {
             println(hermanachos.get(storage))
         }
@@ -103,5 +104,32 @@ class MainActivity : AppCompatActivity() {
         println("The new list modified is:")
         println(newListBrothers)
         println("*******************************************************************************")
+        println("LIST")
+
+        val weekDays = listOf("Lunes","Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo")
+        println("Showing all data of the List:")
+        println(weekDays)
+        println("*******************************************************************************")
+
+        println("Showing data with cycle For:")
+        for (storageWeekDays in weekDays){
+            println(storageWeekDays)
+        }
+        println("*******************************************************************************")
+
+        println("Showing data with cycle For but with UpperCase:")
+        for (storageWeekDays in weekDays){
+            println(storageWeekDays.toUpperCase())
+        }
+        println("*******************************************************************************")
+
+        val camelCase = listOf("naruto shipuden", "mokey Luffy", "zoro ronoroa")
+
+        println("Showing data with cycle For but with CamelCase:")
+        for (storageWeekDays in camelCase){
+            println(storageWeekDays)
+        }
+
     }
+
 }
