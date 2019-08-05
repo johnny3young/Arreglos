@@ -79,8 +79,8 @@ class MainActivity : AppCompatActivity() {
 
         //The .filter our let filter in the list though of one o many conditions that we set. We call a it (iterator)
         println("We find out in the list if contents the word “Yohnny” o “Stefanny“. In this case draws “Stefanny")
-        val filter = hermanachos.filter { it == "Yohnny" || it == "Stefanny"}
-        println(filter)
+        val filterArray = hermanachos.filter { it == "Yohnny" || it == "Stefanny"}
+        println(filterArray)
         println("*******************************************************************************")
 
         println("Showing data of the array without element Daysi removed:")
@@ -123,12 +123,40 @@ class MainActivity : AppCompatActivity() {
         }
         println("*******************************************************************************")
 
-        val camelCase = listOf("naruto shipuden", "mokey Luffy", "zoro ronoroa")
+        val animeList = listOf("naruto shipuden", "mokey luffy", "zoro ronoroa")
 
-        println("Showing data with cycle For but with CamelCase:")
-        for (storageWeekDays in camelCase){
-            println(storageWeekDays)
+        println("Showing data with cycle For but with Capitalize:")
+        for (storageWeekDays in animeList){
+            println(storageWeekDays.capitalize())
         }
+        println("*******************************************************************************")
+
+        println("Search with filter in the animeList:")
+        val filterList = animeList.filter { it =="naruto" || it == "mokey" || it == "zoro" || it =="zoro ronoroa" || it == "ok"}
+        println(filterList)
+        println("*******************************************************************************")
+
+        if ("naruto" in animeList || "mokey luffy" in animeList)
+            println("Found")
+
+        var heroesList = mutableListOf("Batman", "Superman", "Flash", "Linterna Verde", "Capitán América", "Iron Man")
+        println(heroesList)
+        println("*******************************************************************************")
+
+        var heroesListString = heroesList.toString()
+        println(heroesListString)
+        println("*******************************************************************************")
+
+        println(heroesList.lastOrNull())
+        println("*******************************************************************************")
+
+        val firstDataList = heroesList.first()
+        println(firstDataList)
+        heroesList.set(0, firstDataList + " de la noche")
+        println(heroesList)
+
+        val searchHeroesList = heroesList.binarySearch ("fla" )
+        println(searchHeroesList)
 
     }
 
