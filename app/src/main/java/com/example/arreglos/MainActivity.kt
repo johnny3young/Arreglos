@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val hermanachos = mutableListOf("Johnny I", "Johnny II", "Johnny III", "Johnny IV", "Stefanny")
+        val hermanachos = arrayListOf("Johnny I", "Johnny II", "Johnny III", "Johnny IV", "Stefanny")
 
         println("*******************************************************************************")
         println("ARRAYS")
@@ -36,8 +36,9 @@ class MainActivity : AppCompatActivity() {
             println("*******************************************************************************")
 
         //Update data in array
-        hermanachos.set(0,"The lawyer of the family")
-        hermanachos.set(3, "The younger brother")
+
+        hermanachos.set(0, hermanachos[0] + " The lawyer of the family")
+        hermanachos.set(3, hermanachos[3] + " The younger brother")
 
         println("Showing the data updates in array:")
         println(hermanachos[0])
@@ -66,6 +67,7 @@ class MainActivity : AppCompatActivity() {
 
         println("Adding or update an element (By default add in the end):")
         hermanachos.add("Daysi")
+        hermanachos.add("Daysi")
         hermanachos.add(0,"Naruto")
         hermanachos.add(7,"Luffy")
         hermanachos.add(4,"Ace")
@@ -83,17 +85,17 @@ class MainActivity : AppCompatActivity() {
         println(filterArray)
         println("*******************************************************************************")
 
+
         println("Showing data of the array without element Daysi removed:")
-        hermanachos.remove("Daysi")
+        hermanachos.removeAll(arrayListOf("Daysi"))
         println(hermanachos)
         println("*******************************************************************************")
 
         for ((index, item) in hermanachos.withIndex()){
             println("In the index $index the value found is $item")
-            totalNames = hermanachos.size
-
         }
-        println("Ther is $totalNames names o registries in total")
+        totalNames = hermanachos.size
+        println("There is $totalNames names o registries in total")
         println("*******************************************************************************")
 
         //Copy an array and can modify
@@ -123,16 +125,18 @@ class MainActivity : AppCompatActivity() {
         }
         println("*******************************************************************************")
 
-        val animeList = listOf("naruto shipuden", "mokey luffy", "zoro ronoroa")
+        val animeList = listOf("Naruto shipuden", "monkey luffy", "zoro ronoroa")
+
+        fun String.capitalizeWords(): String = split(" ").map { it.capitalize() }.joinToString(" ")
 
         println("Showing data with cycle For but with Capitalize:")
         for (storageWeekDays in animeList){
-            println(storageWeekDays.capitalize())
+            println(storageWeekDays.capitalizeWords())
         }
         println("*******************************************************************************")
 
         println("Search with filter in the animeList:")
-        val filterList = animeList.filter { it =="naruto" || it == "mokey" || it == "zoro" || it =="zoro ronoroa" || it == "ok"}
+        val filterList = animeList.filter { it.contains("naruto",true) }
         println(filterList)
         println("*******************************************************************************")
 
